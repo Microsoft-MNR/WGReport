@@ -1,0 +1,24 @@
+%!TEX root=../rwg.tex
+\section{Towards better performance guarantees for distributed systems}
+
+\paragraph{}
+Over the last decade there has been tremendous progress in the scalability and reliability of distributed systems.
+New techniques for distributed transactions have allowed datastores to scale across multiple servers~\cite{aguilera2007sinfonia}, data centers, and even continents~\cite{Lloyd:2011:DSE:2043556.2043593}.  At the same time, improved replication techniques~\cite{van2004chain} allow for better reliability and fault-tolerant centralized services.
+
+Nowadays, there is still a disconnect between the proven correctness of these techniques and their actual implementation. While projects like IronFleet~\cite{hawblitzel2015ironfleet} allow formal verification of simple distributed systems, there is still a long road ahead until such an approach can be applied to large-scale systems.
+Further, current work does not give any guarantees about the performance of a system. So, while liveness of a system is proven, it might still perform below the expectation of the developer.
+
+To summarize, there is still a need for easier benchmarking and testing of a distributed system.
+On a single machine, we already have made the step towards automated testing.
+A developer can just run "make check" or similar to ensure their changes did not introduce any new bugs. However, for large-scale distributed systems, this is not as trivial. What if multiple concurrent failures occur? How does the system behave is network links go down?
+Further, it is often nontrivial to estimate how a deployment affects performance. It might not be clear for an administrator how (and if) to shard data.
+
+\paragraph{}
+We see the following two directions for further research. First, one can use existing techniques for virtualization and software-defined networks (SDNs), to deploy and test a distributed system. This would also make it easier for the research community to set up and repeat experiments.
+One might for example want a set of scripts that automatically creates multiple containers running instances of MongoDB. Then at a specific point in time they want to introduce failure of several of the nodes. Without the use of automation, this would be hard to trigger at the exact intended time and even harder to reproduce. In this case using virtual machines will make it much easier to introduce such a failure. SDNs, on the other hand, can aid to simulate link failures.
+One of the challenges here is that such a virtualized setup does not affect the performance of the system in a way that skews the results.
+Our group believes that this will change the way we conduct systems research significantly and might lead to a common set of benchmarks and evaluation suites.
+
+Second, we hope that it will be possible to extend formal methods to include guarantees about performance. E.g., one can estimate after how many iterations a system converges, either using formal verification or mathematical modeling.
+However, because of the FLP~\cite{fischer1985impossibility} result, this would only be possible, if given stronger guarantees about the network performance. 
+The work by Hawbitzel et al.~\cite{hawblitzel2015ironfleet} already built there livenss proofs on such bounds. Arguing with such worst-case bounds, however, would yield in very weak guarantees (e..g high latency bounds). This means, we need to improve this practive or we will need to find another way to argue about time-bounds in a formally verified system.

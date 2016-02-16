@@ -1,0 +1,99 @@
+% Submission class file
+\documentclass[11pt]{article}
+\oddsidemargin 4.5pc
+\evensidemargin 4.5pc
+\advance\oddsidemargin by -1in  % Correct for LaTeX gratuitousness
+\advance\evensidemargin by -1in % Correct for LaTeX gratuitousness
+\marginparwidth 0pt             % Margin pars are not allowed.
+\marginparsep 11pt              % Horizontal space between outer margin and
+                                % marginal note
+
+                                % Top of page:
+\topmargin 4.5pc                % Nominal distance from top of page to top of
+                                % box containing running head.
+\advance\topmargin by -1in      % Correct for LaTeX gratuitousness
+\headheight 0pt                 % Height of box containing running head.
+\headsep 0pt                    % Space between running head and text.
+                                % Bottom of page:
+\footskip 30pt                  % Distance from baseline of box containing foot
+                                % to baseline of last line of text.
+                                \setlength{\columnsep}{.2in}
+
+%% Must redefine the top margin so there's room for headers and
+%% page numbers if you are using the preprint option. Footers
+%% are OK as is. Olin.
+\advance\topmargin by -37pt     % Leave 37pt above text for headers
+\headheight 12pt                % Height of box containing running head.
+\headsep 25pt                   % Space between running head and text.
+\textheight 680pt       % 9 1/4 column height
+\textwidth 40pc         % Width of text line.
+% Camera-ready class file
+\usepackage{palatino}
+% \renewcommand{\abstractname}{Executive Summary}
+\date{}
+
+\usepackage[usenames,dvipsnames]{color}
+\definecolor{mycitegreen}{RGB}{0,90,0}
+\definecolor{myrefblue}{RGB}{90,0,0}
+\definecolor{red}{RGB}{140,0,0}
+\definecolor{green}{RGB}{0,80,0}
+\definecolor{brown}{RGB}{30,30,0}
+\usepackage[draft=true, final=true, colorlinks=true, citecolor=mycitegreen, linkcolor=myrefblue, anchorcolor=myrefblue, pagebackref=false, urlcolor=brown]{hyperref}
+\usepackage{graphics,enumitem}
+\usepackage{epsfig}
+\usepackage{graphicx}
+
+\usepackage[font={bf,small}]{caption}
+
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{color}
+
+\usepackage{breakurl}
+\usepackage{xspace}
+\let\proof\relax
+\let\endproof\relax
+\usepackage{amsthm}
+\usepackage{boxedminipage}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% for eqns side-by-side
+\usepackage{multicol}
+\setlength{\multicolsep}{6.0pt plus 2.0pt minus 1.5pt}% 50% of original values
+
+
+\setlength{\pdfpagewidth}{8.5in}
+\setlength{\pdfpageheight}{11in}
+
+
+
+\title{
+Report from the Cloud and Big-Data Systems Track
+}
+
+\author
+{
+Aaron Blankstein, Natacha Crooks, Xianzheng Dou, Ayush Dubey, Peng Huang, \\
+Kai Mast, Radhika Mittal,  Chunzhi Su, Matthias Vallentin and Irene Zhang
+}
+
+\makeatother
+\theoremstyle{definition}
+\newtheorem{lemma}{Lemma}
+
+\begin{document}
+
+\maketitle
+\input{texfiles/rwg_consistency}
+\input{texfiles/rwg_testing}
+\input{texfiles/rwg_geo}
+{
+\bibliographystyle{abbrv}
+\bibliography{bibs/paper}
+}
+
+\end{document}
+
+

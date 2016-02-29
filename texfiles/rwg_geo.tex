@@ -1,5 +1,33 @@
 %!TEX root=../rwg.tex
 \section{Analyzing Geo-distributed Datasets}
-It is our belief that geo-distribution of cloud data will continue to be a major difficulty for big data systems. These difficulties can be reduced to scheduling problems: how do we schedule resources and place data to satisfy latency requirements and balance processing on less costly or loaded data centers? Furthermore, even once this problem is conceptualized as a set of constraints, how easy is it to solve these constraints? Do we need approximate solutions, and how well will they work?
+It is our belief that geo-distribution of cloud data will continue to
+be a major difficulty for big data systems. While some prior work has
+focused on solving particular problems that arise in storage across
+multiple datacenters (e.g., COPS~\cite{Lloyd:2011:DSE:2043556.2043593}, or
+Spanner~\cite{spanner-corbett}). However, we believe that the problem
+of geo-distribution can be more generally reduced to scheduling
+problems: how do we schedule resources and place data to satisfy
+latency requirements and balance processing on less costly or loaded
+data centers? Existing frameworks such as Iridium solve the wide-area
+data analytics problem by casting it as a data placement optimization
+problem~\cite{iridium-pu}.  Furthermore, even once this problem is
+conceptualized as a set of constraints, how easy is it to solve these
+constraints? Do we need approximate solutions, and how well will they
+work?  In SWAG, rather than optimizing data placement, the framework
+focuses on scheduling jobs to complete wide-area tasks and presents an
+algorithm for scheduling based on greedy approximations~\cite{swag-hung}.
 
-Secondly, we argue that the problem of geodistribution is really a special case (multiple locations under single domain of control) of the more general problem of data management and analysis across multiple datacenters with multiple domains of control. When there are multiple domains of control, additional constraints must be enforced due to legal or organizational barriers which prevent data from moving. The same basic questions arise in this situation, but there are new ones, including concerns about data privacy and security. When is it safe to share analysis results or share processing? How can one domain trust the analysis of another?
+Secondly, we argue that the problem of geodistribution is really a
+special case (multiple locations under single domain of control) of
+the more general problem of data management and analysis across
+multiple datacenters with multiple domains of control. When there are
+multiple domains of control, additional constraints must be enforced
+due to legal or organizational barriers which prevent data from
+moving. This has been noted and discussed in the Geode
+project~\cite{geode-vulimiri} which also presents an approach that
+combines query planning with pseduo-distributed execution.  The same
+basic questions arise in this situation as in more simply
+geo-distributed systems, but there are also new ones, including concerns
+about data privacy and security. When is it safe to share analysis
+results or share processing? How can one domain trust the analysis of
+another?
